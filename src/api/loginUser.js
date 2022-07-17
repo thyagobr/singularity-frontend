@@ -1,4 +1,4 @@
-export default function loginUser(email, password) {
+export default function loginUser(email, password, onLoginSuccess, onLoginFail) {
     fetch(
         "http://localhost:3001/api/login",
         {
@@ -11,7 +11,13 @@ export default function loginUser(email, password) {
                 password
             })
         }
-    ).then(function(response) {
-        return response.json()
+    ).then(function (response) {
+        if (response.ok) {
+            return response.json();
+        } else {
+            onLoginFail()
+        }
+    }).then(function (json) {
+        onLoginSuccess(json)
     })
 }

@@ -13,7 +13,7 @@ function App() {
           <Quest />
         </div>
         :
-        <Login />
+        <Login onLogin={setCurrentUser} />
       )
     );
 }
