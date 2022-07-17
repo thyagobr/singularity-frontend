@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import { useState } from "react";
+import Quest from "./components/quest"
+import Login from "./views/Login"
 
 function App() {
+
+  const [currentUser, setCurrentUser] = useState()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      (currentUser ? 
+        <div className="App">
+          <Quest />
+        </div>
+        :
+        <Login />
+      )
+    );
 }
 
 export default App;
