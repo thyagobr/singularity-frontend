@@ -3,15 +3,19 @@ import loginUser from "../api/loginUser";
 
 export default function Login(props) {
     const { onLogin } = props
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const onLoginFail = () => {
         setPassword('')
         alert("Couldn't login user")
     }
 
     return (
-        <div className="flex flex-col justify-center mx-auto w-80">
+        <form className="flex flex-col justify-center mx-auto w-80" onSubmit={(e) => {
+            e.preventDefault()
+            loginUser(email, password, onLogin, onLoginFail)
+        }
+        }>
             <div className="mx-2 my-2 flex flex-col text-center">
                 <h1 className="text-3xl my-10">singularity</h1>
                 <h3 className="text-xl my-1 mb-10">login</h3>
@@ -36,11 +40,11 @@ export default function Login(props) {
             <div className="mx-2 my-2 flex justify-center">
                 <button
                     className="bg-black hover:bg-gray-500 py-2 px-4 rounded text-white font-bold transition-colors"
-                    onClick={() => loginUser(email, password, onLogin, onLoginFail)}
+                    type="submit"
                 >
                     Login
                 </button>
             </div>
-        </div>
+        </form>
     )
 }
