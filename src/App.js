@@ -1,6 +1,6 @@
 import "./App.css"
 import { useState } from "react";
-import Quest from "./components/quest"
+import QuestLog from "./components/QuestLog"
 import Login from "./views/Login"
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
 
   return (
       (currentUser ? 
-        <div className="w-1/2 m-auto">
-          <Quest />
+        <div className="">
+          <QuestLog />
         </div>
         :
         <Login onLogin={setCurrentUser} />

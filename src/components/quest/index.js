@@ -1,2 +1,2 @@
-import Quest from "../../views/Quest"
+import Quest from "./Quest"
 export default Quest

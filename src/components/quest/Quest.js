@@ -1,6 +1,6 @@
 export default function Quest() {
     return (
-        <div className="flex flex-col p-4 text-white">
+        <div className="flex flex-col p-4 text-white col-span-2">
             <div className="text-4xl text-center mb-12 font-bold">
                 <h1>Setup controller for listing tasks</h1>
             </div>
