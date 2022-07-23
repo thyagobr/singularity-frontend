@@ -17,12 +17,12 @@ export default function Login(props) {
         }
         }>
             <div className="mx-2 my-2 flex flex-col text-center">
-                <h1 className="text-3xl my-10">singularity</h1>
-                <h3 className="text-xl my-1 mb-10">login</h3>
+                <h1 className="text-3xl text-white my-10">singularity</h1>
+                <h3 className="text-xl text-white my-1 mb-10">login</h3>
             </div>
             <div className="mx-2 my-2">
                 <input
-                    className="shadow border rounded px-2 py-1 w-full outline-purple-500"
+                    className="shadow border rounded px-2 py-1 w-full outline-teal-500 ring-2 ring-indigo-500"
                     type="email"
                     id="email"
                     placeholder="email@dev.com"
@@ -31,7 +31,7 @@ export default function Login(props) {
             </div>
             <div className="mx-2 my-2">
                 <input
-                    className="shadow border rounded px-2 py-1 w-full outline-purple-500"
+                    className="shadow border rounded px-2 py-1 w-full outline-teal-500 ring-2 ring-indigo-500"
                     type="password"
                     id="password"
                     onInput={e => setPassword(e.target.value)}
@@ -39,7 +39,7 @@ export default function Login(props) {
             </div>
             <div className="mx-2 my-2 flex justify-center">
                 <button
-                    className="bg-black hover:bg-gray-500 py-2 px-4 rounded text-white font-bold transition-colors"
+                    className="bg-indigo-500 hover:bg-teal-500 py-2 px-4 rounded text-white font-bold transition-colors"
                     type="submit"
                 >
                     Login
