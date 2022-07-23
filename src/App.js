@@ -9,7 +9,7 @@ function App() {
 
   return (
       (currentUser ? 
-        <div className="App">
+        <div className="w-1/2 m-auto">
           <Quest />
         </div>
         :

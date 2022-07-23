@@ -1,21 +1,7 @@
-.App {
+html {
   background-color: #282c34;
-  display: flex;
-  justify-content: center;
 }
 
-.Quest {
-  border: 2px solid brown;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding: 1vh 3vh;
-  letter-spacing: 1px;
-  width: 100vh
-}
-
-.QuestHeader {
-  text-align: center;
+li {
+  list-style-type: circle;
 }
