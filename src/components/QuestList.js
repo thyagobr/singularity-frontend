@@ -27,20 +27,15 @@ function SprintItem(props) {
     const { sprint } = props
 
     const [selectedQuest, setSelectedQuest] = useState(null);
-    const [quests, setQuests] = useState([
-        {
-            id: 1,
-            title: "Create the project",
-            done: false,
-            chosen: false,
-        },
-        {
-            id: 2,
-            title: "Setup controller for listing tasks",
-            done: false,
-            chosen: false
+    const [quests, setQuests] = useState([])
+
+    useEffect(() => {
+        async function fetchSprintQuests(sprint) {
+            let json_response = await Api(`/api/quests?sprint_id=${sprint.id}`, "get")
+            setQuests(json_response)
         }
-    ])
+        fetchSprintQuests(sprint)
+    }, [])
 
     return (
         <div>
