@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Api from "../api/Api"
 
-export default function QuestList() {
+export default function QuestList(props) {
     const [sprints, setSprints] = useState([])
 
     useEffect(() => {
@@ -16,7 +16,10 @@ export default function QuestList() {
         sprints.map(sprint => {
             return (
                 <div className="text-white p-3">
-                    <SprintItem sprint={sprint} />
+                    <SprintItem
+                        sprint={sprint}
+                        selectedQuest={props.selectedQuest}
+                        setSelectedQuest={props.setSelectedQuest} />
                 </div>
             )
         })
@@ -26,7 +29,6 @@ export default function QuestList() {
 function SprintItem(props) {
     const { sprint } = props
 
-    const [selectedQuest, setSelectedQuest] = useState(null);
     const [quests, setQuests] = useState([])
 
     useEffect(() => {
@@ -47,8 +49,8 @@ function SprintItem(props) {
                     <QuestListTask
                         key={quest.id}
                         quest={quest}
-                        selectedQuest={selectedQuest}
-                        setSelectedQuest={setSelectedQuest}
+                        selectedQuest={props.selectedQuest}
+                        setSelectedQuest={props.setSelectedQuest}
                     />
                 )
             })}
