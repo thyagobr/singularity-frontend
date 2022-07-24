@@ -6,7 +6,7 @@ export default function QuestLog() {
     const [selectedQuest, setSelectedQuest] = useState(null);
 
     return (
-        <div className="grid grid-cols-3">
+        <div className="flex">
 
             <QuestList
                 selectedQuest={selectedQuest}

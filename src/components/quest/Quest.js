@@ -30,8 +30,12 @@ export default function Quest(props) {
                     </ul>
                 </div>
                 <div className="flex gap-x-7">
-                    <button className="rounded-lg bg-indigo-500 py-3 px-7 shadow-md ring-2 ring-white">Accept</button>
-                    <button className="rounded-lg bg-indigo-500 py-3 px-7 shadow-md ring-2 ring-white">Make a question</button>
+                    {!quest.done && (
+                        <>
+                            <button className="rounded-lg bg-indigo-500 py-3 px-7 shadow-md ring-2 ring-white">Accept</button>
+                            <button className="rounded-lg bg-indigo-500 py-3 px-7 shadow-md ring-2 ring-white">Make a question</button>
+                        </>
+                    )}
                 </div>
             </div>
         )

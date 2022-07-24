@@ -35,14 +35,14 @@ function SprintItem(props) {
             let json_response = await Api(`/api/quests?sprint_id=${sprint.id}`, "get")
             setQuests(json_response)
             if (json_response[0] && props.selectedQuest === null) {
-                props.setSelectedQuest(json_response[0])
+                props.setSelectedQuest(json_response[json_response.length - 1])
             }
         }
         fetchSprintQuests(sprint)
     }, [])
 
     return (
-        <div className="text-white p-3">
+        <div className="text-white p-3 min-w-7xl max-w-7xl">
             <div className="text-center text-lg ring-1 ring-white rounded-md p-1">
                 {sprint.title}
             </div>
@@ -66,7 +66,7 @@ function QuestListTask(props) {
     return (
         <div>
             <div className="" onClick={() => setSelectedQuest(quest)}>
-                <div className={(selectedQuest && selectedQuest.id === quest.id ? `border-l my-3 p-3 bg-indigo-700 text-white` : `${quest.done ? "line-through" : ""} border-l my-3 p-3 transition duration-150 hover:bg-teal-600 hover:text-black`)}>
+                <div className={(selectedQuest && selectedQuest.id === quest.id ? `${quest.done ? "line-through" : ""} border-l my-3 p-3 bg-indigo-700 text-white` : `${quest.done ? "line-through" : ""} border-l my-3 p-3 transition duration-150 hover:bg-teal-600 hover:text-black`)}>
                     {quest.title}
                 </div>
             </div>
