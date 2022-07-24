@@ -16,17 +16,17 @@ export default function Quest(props) {
                 <div className="my-5">
                     <h2 className="text-3xl font-semibold">Objectives</h2>
                     <ul className="py-3 pl-5">
-                    {quest.objectives.map((objective, index) => {
-                        return <li key={index}>{ objective.title }</li>
-                    })}
+                        {quest.objectives.map((objective, index) => {
+                            return <li key={index}>{objective.title}</li>
+                        })}
                     </ul>
                 </div>
                 <div className="my-5">
                     <h2 className="text-3xl font-semibold">Rewards</h2>
                     <ul className="py-3 pl-5">
-                    {quest.rewards.map((reward, index) => {
-                        return <li key={index}>{ reward.title }</li>
-                    })}
+                        {quest.rewards.map((reward, index) => {
+                            return <li key={index}>{reward.title}</li>
+                        })}
                     </ul>
                 </div>
                 <div className="flex gap-x-7">
@@ -37,7 +37,9 @@ export default function Quest(props) {
         )
     } else {
         return (
-            <h1>Nothing to see here</h1>
+            <div className="flex flex-col p-4 text-white col-span-2">
+                <h1 className="text-white text-center text-3xl">No quests to select</h1>
+            </div>
         )
     }
 }

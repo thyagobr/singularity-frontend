@@ -15,12 +15,11 @@ export default function QuestList(props) {
     return (
         sprints.map(sprint => {
             return (
-                <div className="text-white p-3">
-                    <SprintItem
-                        sprint={sprint}
-                        selectedQuest={props.selectedQuest}
-                        setSelectedQuest={props.setSelectedQuest} />
-                </div>
+                <SprintItem
+                    key={sprint.id}
+                    sprint={sprint}
+                    selectedQuest={props.selectedQuest}
+                    setSelectedQuest={props.setSelectedQuest} />
             )
         })
     )
@@ -35,12 +34,15 @@ function SprintItem(props) {
         async function fetchSprintQuests(sprint) {
             let json_response = await Api(`/api/quests?sprint_id=${sprint.id}`, "get")
             setQuests(json_response)
+            if (json_response[0] && props.selectedQuest === null) {
+                props.setSelectedQuest(json_response[0])
+            }
         }
         fetchSprintQuests(sprint)
     }, [])
 
     return (
-        <div>
+        <div className="text-white p-3">
             <div className="text-center text-lg ring-1 ring-white rounded-md p-1">
                 {sprint.title}
             </div>
