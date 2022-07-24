@@ -1,13 +1,25 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import Api from "../api/Api"
 
 export default function QuestList() {
-    const sprint = {
-        title: "Prototype backend for frontend design",
-    }
+    const [sprints, setSprints] = useState([])
+
+    useEffect(() => {
+        let result = Api("/api/sprints", "get", null, null, null)
+        result.then(json => {
+            console.log(json)
+            setSprints(json)
+        })
+    }, [])
+
     return (
-        <div className="text-white p-3">
-            <SprintItem sprint={sprint} />
-        </div>
+        sprints.map(sprint => {
+            return (
+                <div className="text-white p-3">
+                    <SprintItem sprint={sprint} />
+                </div>
+            )
+        })
     )
 }
 
