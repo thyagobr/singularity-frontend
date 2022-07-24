@@ -10,7 +10,7 @@ export default async function Api(path, method, body, success, failure) {
     }
 
     if (method.toLowerCase() !== "get") {
-        options.body = body
+        options.body = JSON.stringify(body)
     }
 
     const response = await fetch(

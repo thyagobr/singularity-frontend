@@ -1,5 +1,11 @@
+import Api from "../api/Api"
+
 export default function Quest(props) {
     const { quest } = props
+
+    const acceptQuest = async () => {
+        const json_response = await Api(`/api/quests/${quest.id}`, 'put', { quest: { event: "start" } })
+    }
 
     if (quest) {
         return (
@@ -32,7 +38,7 @@ export default function Quest(props) {
                 <div className="flex gap-x-7">
                     {!quest.done && (
                         <>
-                            <button className="rounded-lg bg-indigo-500 py-3 px-7 shadow-md ring-2 ring-white">Accept</button>
+                            <button className="rounded-lg bg-indigo-500 py-3 px-7 shadow-md ring-2 ring-white" onClick={acceptQuest}>Accept</button>
                             <button className="rounded-lg bg-indigo-500 py-3 px-7 shadow-md ring-2 ring-white">Make a question</button>
                         </>
                     )}
