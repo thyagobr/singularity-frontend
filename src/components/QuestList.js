@@ -5,11 +5,11 @@ export default function QuestList() {
     const [sprints, setSprints] = useState([])
 
     useEffect(() => {
-        let result = Api("/api/sprints", "get", null, null, null)
-        result.then(json => {
-            console.log(json)
+        async function fetchSprints() {
+            let json = await Api("/api/sprints", "get", null, null, null)
             setSprints(json)
-        })
+        }
+        fetchSprints()
     }, [])
 
     return (

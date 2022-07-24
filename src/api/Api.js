@@ -1,4 +1,4 @@
-export default function Api(path, method, body, success, failure) {
+export default async function Api(path, method, body, success, failure) {
     let token = "bad token"
 
     let options = {
@@ -13,16 +13,9 @@ export default function Api(path, method, body, success, failure) {
         options.body = body
     }
 
-    return fetch(
+    const response = await fetch(
         `http://localhost:3001${path}`,
         options
-    ).then(function (response) {
-        if (response.ok) {
-            return response.json();
-        } else {
-            failure()
-        }
-    }).then(function (json) {
-        return json
-    })
+    )
+    return response.json()
 }
